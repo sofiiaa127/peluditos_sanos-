@@ -1,0 +1,94 @@
+{
+  "nombre": "Respiratorio",
+  "descripcion": "Tos, estornudos y dificultad para respirar",
+  "color": "#a855f7",
+  "unidad": "día",
+  "actividades": {
+    "CON": {
+      "nombre": "Consulta",
+      "dias": 3,
+      "requiere": []
+    },
+    "EXM": {
+      "nombre": "Exámenes",
+      "dias": 2,
+      "requiere": [
+        "CON"
+      ]
+    },
+    "PLN": {
+      "nombre": "Plan de tratamiento",
+      "dias": 2,
+      "requiere": [
+        "EXM"
+      ]
+    },
+    "EXR": {
+      "nombre": "Examen respiratorio",
+      "dias": 1,
+      "requiere": [
+        "PLN"
+      ]
+    },
+    "NEB": {
+      "nombre": "Nebulización y reposo",
+      "dias": 7,
+      "requiere": [
+        "EXR"
+      ],
+      "gravedad": "leve",
+      "costo": "$"
+    },
+    "ANT": {
+      "nombre": "Antibiótico oral + antiinflamatorio",
+      "dias": 14,
+      "requiere": [
+        "EXR"
+      ],
+      "gravedad": "moderada",
+      "costo": "$$"
+    },
+    "HOX": {
+      "nombre": "Hospitalización con oxígeno",
+      "dias": 10,
+      "requiere": [
+        "EXR"
+      ],
+      "gravedad": "grave",
+      "costo": "$$$"
+    },
+    "COR": {
+      "nombre": "Control respiratorio",
+      "dias": 30,
+      "requiere": [
+        "NEB",
+        "ANT",
+        "HOX"
+      ]
+    },
+    "RFT": {
+      "nombre": "Refuerzo de tratamiento",
+      "dias": 14,
+      "requiere": [
+        "NEB",
+        "ANT",
+        "HOX"
+      ],
+      "paralela": true
+    },
+    "ALR": {
+      "nombre": "Alta respiratoria",
+      "dias": 0,
+      "requiere": [
+        "COR",
+        "RFT"
+      ]
+    }
+  },
+  "recaida": {
+    "id": "CRI",
+    "nombre": "Crisis respiratoria",
+    "dias": 5,
+    "desde": "COR"
+  }
+}

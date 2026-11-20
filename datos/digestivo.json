@@ -1,0 +1,94 @@
+{
+  "nombre": "Digestivo",
+  "descripcion": "Vómito, diarrea o heces con sangre",
+  "color": "#0ea5e9",
+  "unidad": "día",
+  "actividades": {
+    "CON": {
+      "nombre": "Consulta",
+      "dias": 3,
+      "requiere": []
+    },
+    "EXM": {
+      "nombre": "Exámenes",
+      "dias": 2,
+      "requiere": [
+        "CON"
+      ]
+    },
+    "PLN": {
+      "nombre": "Plan de tratamiento",
+      "dias": 2,
+      "requiere": [
+        "EXM"
+      ]
+    },
+    "EXH": {
+      "nombre": "Examen de heces y sangre",
+      "dias": 1,
+      "requiere": [
+        "PLN"
+      ]
+    },
+    "DBL": {
+      "nombre": "Dieta blanda e hidratación",
+      "dias": 5,
+      "requiere": [
+        "EXH"
+      ],
+      "gravedad": "leve",
+      "costo": "$"
+    },
+    "MED": {
+      "nombre": "Medicación gastrointestinal",
+      "dias": 10,
+      "requiere": [
+        "EXH"
+      ],
+      "gravedad": "moderada",
+      "costo": "$$"
+    },
+    "HSU": {
+      "nombre": "Hospitalización con suero",
+      "dias": 7,
+      "requiere": [
+        "EXH"
+      ],
+      "gravedad": "grave",
+      "costo": "$$$"
+    },
+    "CDG": {
+      "nombre": "Control digestivo",
+      "dias": 14,
+      "requiere": [
+        "DBL",
+        "MED",
+        "HSU"
+      ]
+    },
+    "PRO": {
+      "nombre": "Probióticos de refuerzo",
+      "dias": 7,
+      "requiere": [
+        "DBL",
+        "MED",
+        "HSU"
+      ],
+      "paralela": true
+    },
+    "ALG": {
+      "nombre": "Alta digestiva",
+      "dias": 0,
+      "requiere": [
+        "CDG",
+        "PRO"
+      ]
+    }
+  },
+  "recaida": {
+    "id": "RDG",
+    "nombre": "Recaída digestiva",
+    "dias": 3,
+    "desde": "CDG"
+  }
+}

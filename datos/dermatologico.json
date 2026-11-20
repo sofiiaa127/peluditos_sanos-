@@ -1,0 +1,94 @@
+{
+  "nombre": "Dermatológico",
+  "descripcion": "Piel: alergias, hongos y dermatitis",
+  "color": "#ec4899",
+  "unidad": "día",
+  "actividades": {
+    "CON": {
+      "nombre": "Consulta",
+      "dias": 3,
+      "requiere": []
+    },
+    "EXM": {
+      "nombre": "Exámenes",
+      "dias": 2,
+      "requiere": [
+        "CON"
+      ]
+    },
+    "PLN": {
+      "nombre": "Plan de tratamiento",
+      "dias": 2,
+      "requiere": [
+        "EXM"
+      ]
+    },
+    "CIT": {
+      "nombre": "Citología y raspado de piel",
+      "dias": 3,
+      "requiere": [
+        "PLN"
+      ]
+    },
+    "BAN": {
+      "nombre": "Baños medicados y shampoo",
+      "dias": 14,
+      "requiere": [
+        "CIT"
+      ],
+      "gravedad": "leve",
+      "costo": "$"
+    },
+    "AFG": {
+      "nombre": "Antifúngico o antibiótico",
+      "dias": 21,
+      "requiere": [
+        "CIT"
+      ],
+      "gravedad": "moderada",
+      "costo": "$$"
+    },
+    "INM": {
+      "nombre": "Inmunoterapia (vacuna alergia)",
+      "dias": 90,
+      "requiere": [
+        "CIT"
+      ],
+      "gravedad": "grave",
+      "costo": "$$$"
+    },
+    "COD": {
+      "nombre": "Control dermatológico",
+      "dias": 30,
+      "requiere": [
+        "BAN",
+        "AFG",
+        "INM"
+      ]
+    },
+    "DIE": {
+      "nombre": "Dieta hipoalergénica",
+      "dias": 14,
+      "requiere": [
+        "BAN",
+        "AFG",
+        "INM"
+      ],
+      "paralela": true
+    },
+    "ALD": {
+      "nombre": "Alta dermatológica",
+      "dias": 0,
+      "requiere": [
+        "COD",
+        "DIE"
+      ]
+    }
+  },
+  "recaida": {
+    "id": "BRO",
+    "nombre": "Brote cutáneo",
+    "dias": 14,
+    "desde": "COD"
+  }
+}

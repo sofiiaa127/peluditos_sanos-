@@ -1,0 +1,94 @@
+{
+  "nombre": "Antiparasitario",
+  "descripcion": "Pulgas, garrapatas, gusanos y hemoparásitos",
+  "color": "#f97316",
+  "unidad": "día",
+  "actividades": {
+    "CON": {
+      "nombre": "Consulta",
+      "dias": 3,
+      "requiere": []
+    },
+    "EXM": {
+      "nombre": "Exámenes",
+      "dias": 2,
+      "requiere": [
+        "CON"
+      ]
+    },
+    "PLN": {
+      "nombre": "Plan de tratamiento",
+      "dias": 2,
+      "requiere": [
+        "EXM"
+      ]
+    },
+    "IDP": {
+      "nombre": "Identificación del parásito",
+      "dias": 1,
+      "requiere": [
+        "PLN"
+      ]
+    },
+    "PAS": {
+      "nombre": "Pastilla o pipeta mensual",
+      "dias": 30,
+      "requiere": [
+        "IDP"
+      ],
+      "gravedad": "leve",
+      "costo": "$"
+    },
+    "PLC": {
+      "nombre": "Plan completo + limpieza hogar",
+      "dias": 45,
+      "requiere": [
+        "IDP"
+      ],
+      "gravedad": "moderada",
+      "costo": "$$"
+    },
+    "TER": {
+      "nombre": "Terapia intensiva (hemoparásitos)",
+      "dias": 60,
+      "requiere": [
+        "IDP"
+      ],
+      "gravedad": "grave",
+      "costo": "$$$"
+    },
+    "EXC": {
+      "nombre": "Examen de control",
+      "dias": 30,
+      "requiere": [
+        "PAS",
+        "PLC",
+        "TER"
+      ]
+    },
+    "REF": {
+      "nombre": "Refuerzo de dosis",
+      "dias": 15,
+      "requiere": [
+        "PAS",
+        "PLC",
+        "TER"
+      ],
+      "paralela": true
+    },
+    "ALA": {
+      "nombre": "Alta antiparasitaria",
+      "dias": 0,
+      "requiere": [
+        "EXC",
+        "REF"
+      ]
+    }
+  },
+  "recaida": {
+    "id": "REI",
+    "nombre": "Reinfección",
+    "dias": 3,
+    "desde": "EXC"
+  }
+}
